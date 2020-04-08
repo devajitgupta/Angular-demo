@@ -1,0 +1,86 @@
+<h1>APP COMPONENT</h1>
+<h1>{{title}}</h1>
+<h2>(Directive)Using ngswitch</h2>
+<select (change)="setvalue($event)">
+  <option value="">select</option>
+  <option value="one">One</option>
+  <option value="two">Two</option>
+  <option value="three">Three</option>
+  <option value="another">Another</option>
+
+</select>
+<div [ngSwitch]="choose">
+  <h3 *ngSwitchCase="'one'">First</h3>
+  <h3 *ngSwitchCase="'two'">Two</h3>
+  <h3 *ngSwitchCase="'three'">Three</h3>
+  <h3 *ngSwitchDefault="'default'">Default</h3>
+</div>
+
+<h1>Using ngFor Loop</h1>
+<ul>
+  <li *ngFor="let student of Students; let i=index ;let f=first; let l=last; let e=even; let o=odd">
+    {{i+1}}-{{student.name}}-{{f}}-{{l}}--{{e}}--{{o}}
+  </li>
+</ul>
+
+<h1>TrackBy Example</h1>
+<table border="1">
+  <tr *ngFor="let s of students;let i=index;trackBy:trackbystudentid">
+    <td>{{i+1}}</td>
+    <td>{{s.studentId}}</td>
+    <td>{{s.name}}</td>
+    <td>{{s.gender}}</td>
+    <td>{{s.age}}</td>
+    <td>{{s.course}}</td>
+  </tr>
+</table>
+<br>
+<button (click)="getmorestudents()">Get More Students</button>
+<!------Attribute binding---->
+<h1>Attribute binding</h1>
+<table [attr.border]="bdr">
+  <tr>
+    <td [attr.colspan]="col">Students details</td>
+  </tr>
+  <tr>
+    <td>Name:</td>
+    <td>Age:</td>
+  </tr>
+  <tr>
+  <td>Ajit Gupta</td>
+  <td>25</td>
+  </tr>
+</table>
+<!--------- two way data binding--->
+<h1>Two Way DATA binding</h1>
+<h2>Enter Your Name-- <input type="text" [value]='data' (input)='data=$event.target.value'name="name">
+<br>
+Your Name Is-{{data}}
+</h2>
+<input [(ngModel)]='data1'>
+<h3>Your name is {{data1}}</h3>
+
+
+<h1>Using Pipes</h1>
+<table border="1">
+  <tr>
+    <td>Id</td>
+    <td>Name:</td>
+    <td>City:</td>
+    <td>Age:</td>
+  </tr>
+  <tr *ngFor="let employee of employees">
+    <td>{{employee.id}}</td>
+    <td>{{employee.name | uppercase}}</td>
+    <td>{{employee.city | uppercase}}</td>
+    <td>{{employee.age | uppercase}}</td>
+  </tr>
+</table>
+
+
+
+
+
+
+
+
